@@ -10,62 +10,61 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,Image} from 'react-native';
 import {createBottomTabNavigator,createDrawerNavigator,createAppContainer} from 'react-navigation';
-import Home from './src/components/Home';
-import Categories from './src/components/Categories';
-import Search from './src/components/Search';
-import Cart from './src/components/Cart';
-import Account from './src/components/Account';
+import HomeComponent from './src/components/Home';
+import CategoriesComponent from './src/components/Categories';
+import SearchComponent from './src/components/Search';
+import CartComponent from './src/components/Cart';
+import AccountComponent from './src/components/Account';
 import Icon from 'react-native-vector-icons/Ionicons'
 import HomeIcon from './src/Assets/Icons/Home.png';
-import Menu from './src/Assets/Icons/Menu.png'
+import Menu from './src/Assets/Icons/Menu.png';
+import {BottomNavigation} from 'react-native-paper';
 
-// const BottomTab = createBottomTabNavigator({
-//   Home:{
-//     screen:Home,
-//     navigationOptions:{
-//       tabBarIcon:<Image source={HomeIcon}/>,
-//       tabBarLabel:() => null
-//     }
-//   },
-//   Categories:{
-//     screen:Categories,
-//     navigationOptions:{
-//       tabBarIcon: ({tintColor}) => (
-//       <Icon mame="ios-home" color={tintColor} size={24} />
-//       ),
-//       tabBarLabel:() => null
-//     }
-//   },
-//   Search:{
-//     screen:Search,
-//     navigationOptions:{
-//       tabBarIcon:<Icon name="home" iconStyle={{color:"black"}} />
-//     } 
-//   },
-//   Cart:{
-//     screen:Cart,
-//     navigationOptions:{
-//       tabBarIcon:<Icon name="home" iconStyle={{color:"black"}} />
-//     }
-//   },
-//   Account:{
-//     screen:Account,
-//     navigationOptions:{
-//       tabBarIcon:<Icon name="home" iconStyle={{color:"black"}} />
-//     }
-//   }
-// },
-// {
-//   activeTintColor:"green"
-// }
-// )
+const Home = () => <HomeComponent />;
 
-// const AppStack = createAppContainer(BottomTab);
+const Categories = () => <CategoriesComponent />;
 
-export default class App extends Component{
+const Search = () => <SearchComponent />;
+
+const Cart = ()=><CartComponent />;
+
+const Account = ()=><AccountComponent />;
+
+
+export default class App extends React.Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'Home', icon: 'home',color:'white',},
+      { key: 'Categories', icon: 'grid-on',color:'white',},
+      { key: 'Search', icon: "search",color:'white'},
+      { key: 'Cart', icon:'shopping-cart', color:'white',},
+      { key: 'Account', icon: 'person-outline',color:'white'},
+    ],
+  };
+
+  _handleIndexChange = index => this.setState({ index });
+
+  _renderScene = BottomNavigation.SceneMap({
+    Home: Home,
+    Categories: Categories,
+    Search: Search,
+    Cart: Cart,
+    Account: Account,
+  },
+ );
+
   render() {
     return (
-      <Home />
+      <BottomNavigation
+        navigationState={this.state}
+        onIndexChange={this._handleIndexChange}
+        renderScene={this._renderScene}
+        activeColor='#42C2BF'
+        inactiveColor="silver"
+        shifting={false}
+        barStyle={{backgroundColor: "white",}}
+      />
     );
   }
 }
