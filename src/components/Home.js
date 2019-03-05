@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,TouchableOpacity,ScrollView,Image,ImageBackground,Alert } from 'react-native';
-import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
+import { Container, Header, Content, Footer, FooterTab, Button, Icon,Drawer } from 'native-base';
 // import {Icon} from 'react-native-vector-icons/FontAwesome'
 import Logo from '../Assets/Images/logo.png';
 import Short from '../Assets/Images/short.png'
@@ -21,6 +21,11 @@ import Green from '../Assets/Images/green_shirt.jpg';
 import Ladies from '../Assets/Images/ladies_shirt.jpg';
 import White from '../Assets/Images/white_shirt.jpg';
 import WhiteSecond from '../Assets/Images/white_shirt_second.jpg';
+import Bag1 from '../Assets/Images/bag1.jpg';
+import Bag2 from '../Assets/Images/bag2.jpg';
+import Bag3 from '../Assets/Images/bag3.jpg';
+import Bag4 from '../Assets/Images/bag4.jpg';
+import Cart from './Cart';
 
 export default class Home extends Component {
 
@@ -80,7 +85,7 @@ export default class Home extends Component {
           <View style={{
             alignItems:"flex-start",
             margin:10,
-            width:'50%'
+            flexGrow: 1,
           }}>
           <TouchableOpacity>
             <Icon name="align-left" type="FontAwesome" />
@@ -89,7 +94,7 @@ export default class Home extends Component {
           <View style={{
             alignItems:"flex-end",
             margin:10,
-            width:'40%'
+            flexGrow:1
           }}>
           <TouchableOpacity>
             <Icon name="th-large" type="FontAwesome" />
@@ -215,12 +220,12 @@ export default class Home extends Component {
               </View>
 
               {/* after 2 banners */}
-              <View style={{flexDirection:'row',width:'100%',margin:10}}>
+              <View style={{flexDirection:'row',width:'100%',margin:20}}>
               <View style={{width:"70%",alignItems:"flex-start"}}>
                 <Text style={{fontSize:20,color:"black"}}>Feature Products</Text>
               </View>
               <View style={{width:"20%",alignItems:"flex-end",justifyContent: 'center',}}>
-                <Text style={{fontSize:10,color:"black",justifyContent: 'center'}}>Show all <Icon name="keyboard-arrow-right" type="MaterialIcons" style={{fontSize:20}} /></Text>
+                <Text style={{fontSize:10,color:"black",justifyContent: 'center'}}>Show all &#x3e;</Text>
               </View>
               </View>
               <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -266,6 +271,53 @@ export default class Home extends Component {
                 </View>
                 <View style={{marginLeft:10,marginTop:10}}>
                     <Image source={Ladies} style={{width:150, height:200}} />
+                    <View style={{width:150}}>
+                      <Text style={{color:"black",fontSize:12}}>Bermuda shorts by</Text>
+                      <Text style={{color:"black",fontSize:12}}>Armani</Text>
+                      <Text style={{color:"black",fontSize:10}}>$35.00</Text>
+                    </View>
+                </View>
+              </ScrollView>
+
+            {/* After feature product slider */}
+
+            <View style={{flexDirection:'row',width:'100%',margin:20}}>
+              <View style={{width:"70%",alignItems:"flex-start"}}>
+                <Text style={{fontSize:20,color:"black"}}>Bags Collection</Text>
+              </View>
+              <View style={{width:"20%",alignItems:"flex-end",justifyContent: 'center',}}>
+                <Text style={{justifyContent:"center"}}>
+                <Text style={{fontSize:10,color:"black"}}>Show all &#x3e;</Text>
+                </Text>
+              </View>
+              </View>
+              <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                <View style={{marginLeft:10,marginTop:10}}>
+                    <Image source={Bag1} style={{width:200, height:150}} />
+                    <View style={{width:150}}>
+                      <Text style={{color:"black",fontSize:12}}>Bermuda shorts by</Text>
+                      <Text style={{color:"black",fontSize:12}}>Armani</Text>
+                      <Text style={{color:"black",fontSize:10}}>$35.00</Text>
+                    </View>
+                </View>
+                <View style={{marginLeft:10,marginTop:10}}>
+                    <Image source={Bag2} style={{width:200, height:150}} />
+                    <View style={{width:150}}>
+                      <Text style={{color:"black",fontSize:12}}>Bermuda shorts by</Text>
+                      <Text style={{color:"black",fontSize:12}}>Armani</Text>
+                      <Text style={{color:"black",fontSize:10}}>$35.00</Text>
+                    </View>
+                </View>
+                <View style={{marginLeft:10,marginTop:10}}>
+                    <Image source={Bag3} style={{width:200, height:150}} />
+                    <View style={{width:150}}>
+                      <Text style={{color:"black",fontSize:12}}>Bermuda shorts by</Text>
+                      <Text style={{color:"black",fontSize:12}}>Armani</Text>
+                      <Text style={{color:"black",fontSize:10}}>$35.00</Text>
+                    </View>
+                </View>
+                <View style={{marginLeft:10,marginTop:10}}>
+                    <Image source={Bag4} style={{width:200, height:150}} />
                     <View style={{width:150}}>
                       <Text style={{color:"black",fontSize:12}}>Bermuda shorts by</Text>
                       <Text style={{color:"black",fontSize:12}}>Armani</Text>

@@ -20,6 +20,7 @@ import HomeIcon from './src/Assets/Icons/Home.png';
 import Menu from './src/Assets/Icons/Menu.png';
 import {BottomNavigation} from 'react-native-paper';
 
+
 const Home = () => <HomeComponent />;
 
 const Categories = () => <CategoriesComponent />;
@@ -32,6 +33,7 @@ const Account = ()=><AccountComponent />;
 
 
 export default class App extends React.Component {
+
   state = {
     index: 0,
     routes: [
@@ -64,7 +66,8 @@ export default class App extends React.Component {
         inactiveColor="silver"
         shifting={false}
         barStyle={{backgroundColor: "white",}}
-      />
+      >
+      </BottomNavigation>
     );
   }
 }
