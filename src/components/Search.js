@@ -261,7 +261,7 @@ export default class Search extends Component {
   render() {
     return (
       <View style={{flex:1,backgroundColor: "white",width:"100%",alignItems:"center"}}>
-        <View style={{width:"80%",borderRadius:20,marginTop: 50,height:40,backgroundColor:"rgba(220,220,220,0.4)",flexDirection:"row",justifyContent: 'center', elevation:2}}>
+        <View style={{width:"80%",borderRadius:20,marginTop: 50,height:40,backgroundColor:"rgba(220,220,220,0.4)",flexDirection:"row",justifyContent: 'center', elevation:1}}>
           <View style={{width:"10%",height:40,justifyContent: 'center',alignItems:"flex-end"}}>
           <Icon name="search" type="FontAwesome" style={{fontSize: 20,color:"black"}} />
           </View>  
