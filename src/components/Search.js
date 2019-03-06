@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity,StyleSheet,ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity,StyleSheet,ScrollView} from 'react-native';
 import { Icon } from 'native-base';
 import Modal from 'react-native-modal';
 import { Chip } from 'react-native-paper';
 import {Slider} from 'react-native-elements';
 
 export default class Search extends Component {
+
   state = {
     isModalVisible: false,
     chipBackground1:"#F5F5F5",
@@ -260,7 +261,7 @@ export default class Search extends Component {
   render() {
     return (
       <View style={{flex:1,backgroundColor: "white",width:"100%",alignItems:"center"}}>
-        <View style={{width:"80%",borderRadius:20,marginTop: 50,height:40,backgroundColor:"rgba(220,220,220,0.4)",flexDirection:"row",justifyContent: 'center', elevation:5}}>
+        <View style={{width:"80%",borderRadius:20,marginTop: 50,height:40,backgroundColor:"rgba(220,220,220,0.4)",flexDirection:"row",justifyContent: 'center', elevation:2}}>
           <View style={{width:"10%",height:40,justifyContent: 'center',alignItems:"flex-end"}}>
           <Icon name="search" type="FontAwesome" style={{fontSize: 20,color:"black"}} />
           </View>  
@@ -275,7 +276,7 @@ export default class Search extends Component {
           </View> 
         </View>
 
-        <Modal animationInTiming={700} animationOutTiming={300} backdropOpacity={0} isVisible={this.state.isModalVisible} style={style.BottomModal}>
+        <Modal onBackButtonPress={() => {this.setState({isModalVisible: false})}} animationInTiming={700} animationOutTiming={300} backdropOpacity={0} isVisible={this.state.isModalVisible} style={style.BottomModal}>
               <ScrollView>
                 <View style={{backgroundColor: "white",margin:10}}>
                      <View style={{alignItems:"flex-start",marginTop:10}}>
@@ -316,7 +317,7 @@ export default class Search extends Component {
                           </View>
                           <Text style={{fontSize:15,width:"20%"}}>$4000</Text>
                        </View>
-                       <Slider style={{width:"80%",}} value={this.state.sliderValue} onValueChange={value => this.setState({ sliderValue:value })} maximumValue={4000} minimumTrackTintColor="#42C2BF" thumbTintColor="#42C2BF" minimumValue={0} />
+                       <Slider style={{width:"80%",}} animationType="spring" value={this.state.sliderValue} onValueChange={value => this.setState({ sliderValue:value })} maximumValue={4000} minimumTrackTintColor="#42C2BF" thumbTintColor="#42C2BF" minimumValue={0} />
                      </View>
                      <View style={{alignItems:'center',marginTop:10,width:"100%"}}>
                        <TouchableOpacity style={style.Button} activeOpacity = {0.8} >
